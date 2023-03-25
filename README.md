@@ -22,13 +22,54 @@ There are other templates for other languages:
 To get started, simply click the "Use this template" button on the GitHub repository page. This will create
 a new repository in your account with the same files and structure as this template.
 
+### Use docker
+
+Run the following code to run the eBPF code from the cloud to your local machine in one line:
+
+```console
+$ sudo docker run --rm -it --privileged ghcr.io/eunomia-bpf/libbpf-template:latest
+TIME     EVENT COMM             PID     PPID    FILENAME/EXIT CODE
+09:25:14 EXEC  sh               28142   1788    /bin/sh
+09:25:14 EXEC  playerctl        28142   1788    /nix/store/vf3rsb7j3p7zzyjpb0a3axl8yq4z1sq5-playerctl-2.4.1/bin/playerctl
+09:25:14 EXIT  playerctl        28142   1788    [1] (6ms)
+09:25:15 EXEC  sh               28145   1788    /bin/sh
+09:25:15 EXEC  playerctl        28145   1788    /nix/store/vf3rsb7j3p7zzyjpb0a3axl8yq4z1sq5-playerctl-2.4.1/bin/playerctl
+09:25:15 EXIT  playerctl        28145   1788    [1] (6ms)
+```
+
+### Use Nix
+
+Using [direnv](https://github.com/direnv/direnv) and nix, you can quickly access a dev shell with a complete development environment.
+
+With direnv, you can automatically load the required dependencies when you enter the directory.
+This way you don't have to worry about installing dependencies to break your other project development environment.
+
+See how to install direnv and Nix:
+- direnv: https://github.com/direnv/direnv/blob/master/docs/installation.md
+- Nix: run
+```
+sh <(curl -L https://nixos.org/nix/install) --daemon
+```
+
+Then use the following command to enable direnv support in this directory.
+
+```sh
+direnv allow
+```
+
+If you want use nix flake without direnv, simply run:
+
+```sh
+nix develop
+```
+
 ## **Features**
 
 This starter template includes the following features:
 
 - A **`Makefile`** that allows you to build the project in one command
 - A **`Dockerfile`** to create a containerized environment for your project
-- A **`shell.nix`** to enter a dev shell with needed dependencies
+- A **`flake.nix`** to enter a dev shell with needed dependencies
 - A GitHub action to automate your build and publish process
   and docker image
 - All necessary dependencies for C development with libbpf
