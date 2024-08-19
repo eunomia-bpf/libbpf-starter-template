@@ -46,7 +46,7 @@ jobs:
           platforms: linux/amd64
           # Note: tags has to be all lower-case
           tags: |
-            ghcr.io/${{ github.repository_owner }}/libbpf-template:latest
+            ghcr.io/${{ github.repository }}
           push: true
 
       - name: Image digest
