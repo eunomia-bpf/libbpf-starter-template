@@ -24,6 +24,13 @@
             elfutils
             zlib
           ];
+
+          # See prior art in nixpkgs at:
+          # * https://github.com/NixOS/nixpkgs/issues/325910
+          # * https://github.com/NixOS/nixpkgs/pull/325587
+          hardeningDisable = [
+            "zerocallusedregs"
+          ];
         };
       }
     );
