@@ -12,7 +12,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        devShell = pkgs.mkShell {
+        packages.default = pkgs.mkShell {
           name = "libbpf-template";
           nativeBuildInputs = with pkgs; [
             clang
