@@ -12,7 +12,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        devShell = pkgs.mkShell {
+        packages.default = pkgs.mkShell {
           name = "libbpf-template";
           nativeBuildInputs = with pkgs; [
             clang
@@ -23,6 +23,13 @@
           packages = with pkgs; [
             elfutils
             zlib
+          ];
+
+          # See prior art in nixpkgs at:
+          # * https://github.com/NixOS/nixpkgs/issues/325910
+          # * https://github.com/NixOS/nixpkgs/pull/325587
+          hardeningDisable = [
+            "zerocallusedregs"
           ];
         };
       }
