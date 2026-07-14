@@ -5,7 +5,7 @@ COPY . /root/
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
-      libelf1 libelf-dev zlib1g-dev libclang-13-dev \
+      libelf1 libelf-dev zlib1g-dev libclang-13-dev libssl-dev \
       make git clang llvm pkg-config build-essential && \
     apt-get install -y --no-install-recommends ca-certificates	&& \
 	  update-ca-certificates	&& \

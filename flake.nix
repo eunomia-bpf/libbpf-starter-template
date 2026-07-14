@@ -18,6 +18,7 @@
             clang
             llvm
             pkg-config
+            openssl
           ];
 
           packages = with pkgs; [

@@ -102,7 +102,7 @@ On Ubuntu, you may run `make install` or
 
 ```sh
 sudo apt-get install -y --no-install-recommends \
-        libelf1 libelf-dev zlib1g-dev \
+        libelf1 libelf-dev zlib1g-dev libssl-dev\
         make clang llvm
 ```
 
