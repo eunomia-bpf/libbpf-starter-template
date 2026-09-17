@@ -60,7 +60,7 @@ jobs:
 
     - name: Publish
       if:   github.event_name == 'push' && github.ref == 'refs/heads/master'
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v3
       with:
           files: |
             src/bootstrap
